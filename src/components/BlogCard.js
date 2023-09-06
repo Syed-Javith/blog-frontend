@@ -9,7 +9,7 @@ const BlogCard = (props) => {
 
   const { user , blogs , setBlogs } = useUser();
 
-  const [newBlogTitle , setNewBlogTitle] = useState("");
+  const [newBlogTitle , setNewBlogTitle] = useState(props.blog.blogTitle);
   const [newBlogDescription , setNewBlogDescription] = useState("");
 
   const deleteBlog = ()=>{
@@ -45,6 +45,8 @@ const BlogCard = (props) => {
     .then((result) => {
       console.log(result);
       setBlogs(blogs);
+      setNewBlogTitle(props.blog.blogTitle);
+      setNewBlogDescription("");
     }).catch((err) => {
       console.log(err);
     });
@@ -65,8 +67,8 @@ const BlogCard = (props) => {
           <i 
           className="fa-solid fa-pen-to-square" 
           style={{color: "#1eff00"}}>
-            </i>
-            </button>
+          </i>
+          </button>
         <button
         onClick={()=> deleteBlog()}
         disabled={!(user?.username === props.blog.userid)} 
@@ -92,27 +94,17 @@ const BlogCard = (props) => {
           <form onSubmit={(e) => edit(e)} method='post'>
           <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Change Title : </label>
-                <input name='userid' onChange={(e)=> setNewBlogTitle(e.target.value)}  type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter new titile..."/>
+                <input name='userid' onChange={(e)=> setNewBlogTitle(e.target.value)} value={newBlogTitle}  type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter new title..."/>
                 </div>
                 <div className="form-group">
                 <label htmlFor="exampleFormControlTextarea1">Change Description : </label>
                 <textarea onChange={(e) => setNewBlogDescription(e.target.value)} className="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
                 </div>
-          {/* <button onClick={(e)=> edit(e)}>Submit</button> */}
           <Button variant="primary" onClick={(e)=> edit(e)}>
             Save Changes
           </Button>
           </form>
-          
         </Modal.Body>
-        {/* <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer> */}
       </Modal>
     </div>
   )

@@ -23,8 +23,10 @@ const Login = () => {
         axios.post(url,data)
         .then((result) => {
             console.log(result.data);
-            setUser(result.data)
-            navigate('/');
+            if(result.data?.username){
+              setUser(result.data)
+              navigate('/');
+            }
         }).catch((err) => {
             
         });
