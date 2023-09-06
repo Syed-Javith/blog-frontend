@@ -98,7 +98,7 @@
   opacity: 0.4;
 }
 
-.edit-delete-btns a.btn{
+.edit-delete-btns button.btn{
   margin: 5px;
 }
 
@@ -107,7 +107,7 @@
   justify-content: left;
 }
 
-h1{
+h1.center{
   text-align: center;
 }
 
@@ -121,3 +121,32 @@ h1{
   border-radius: 25px;
   /* align-self: flex-end; */
 }
+
+
+.username{
+  color: white;
+  margin-left: 2px;
+  align-self: flex-end;
+}
+
+/* //Login page  */
+
+
+
+.login-main{
+  background-image: url('./images/space.jpg');
+  opacity: 0.899;
+  height: 500px;
+
+}
+
+
+.edit-form-modal {
+  padding: 10px;
+}
+
+.edit-form-modal .form-group , .edit-form-modal label{
+  padding-bottom: 20px;
+}
+
+

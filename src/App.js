@@ -1,16 +1,24 @@
 import './App.css';
-import AboutUs from './pages/AboutUs';
-import Home from './pages/Home';
-import Post from './pages/Post';
+import HomePage from './pages/HomePage';
+import Login from './pages/Login';
+
+import { BrowserRouter as Router , Routes , Route } from 'react-router-dom';
+import Register from './pages/Register';
+import { UserProvider } from './contexts/userContext';
 
 function App() {
   return (
-  <>
-   <Home id="home" />
-   <Post id="posts"/>
-   <AboutUs id="about-us"/>
-   
-  </>
+    <UserProvider >
+ <Router>
+  <Routes>
+  <Route path='/' element={<HomePage />} />
+    <Route path='/login' element={<Login/>} />
+    <Route path='/register' element={<Register />}/>
+    
+  </Routes>
+
+ </Router>
+ </UserProvider>
   );
 }
 
