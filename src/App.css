@@ -152,16 +152,17 @@ h1.center{
 
 #about-us{
   background-image: url('./images/footer.webp');
-  height: 200px; 
+  /* height: 200px;  */
 }
 
 .about-us-col{
   background-color: #D9D9D9;
-  opacity: 40%;
+  background-color: rgba(217, 217, 217, 0.3); 
+  /* opacity: 40%; */
   border-radius: 20px;
-  margin: 10px;
-  position: relative;
-  top: 30px;
+  /* margin: 10px; */
+  /* position: relative;
+  top: 30px; */
 }
 
 .no-post{
@@ -170,4 +171,11 @@ h1.center{
 
 #posts{
   padding: 10px;
+}
+
+.about-us-pic{
+  border-radius: 100px;
+  opacity: 1;
+  margin: 10px;
+  display: inline-block;
 }

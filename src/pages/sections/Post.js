@@ -50,6 +50,7 @@ const Post = (props) => {
             setBlogs([...blogs , data]);
             setNewBlogDescription("");
             setNewBlogTitle("");
+            setShow(false);
             navigate('/');
             
         }).catch((err) => {
@@ -69,14 +70,15 @@ const Post = (props) => {
         })
         }
 
+        {user?.username &&
         <button 
-        onClick={handleShow}
-        disabled={user?.username === null } 
+        onClick={handleShow} 
         className='btn add-btn'>
         <i className="fa-solid fa-plus"
         style={{color: "#ffffff" }}>
         </i>
         </button>
+        }
 
 
         <Modal show={show} onHide={handleClose}>

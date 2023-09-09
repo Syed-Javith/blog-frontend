@@ -42,8 +42,7 @@ const Home = (props) => {
           <p>innovate with us</p>
 
         <p>
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere sed mollitia quam magnam aspernatur dolore fugit rem quae, pariatur iure sapiente earum, eveniet nobis reprehenderit ratione repellendus. Culpa, facere accusantium!
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere sed mollitia quam magnam aspernatur dolore fugit rem quae, pariatur iure sapiente earum, eveniet nobis reprehenderit ratione repellendus. Culpa, facere accusantium!
+Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere sed mollitia quam magnam aspernatur <br/> dolore fugit rem quae, pariatur iure sapiente earum, eveniet nobis reprehenderit ratione repellendus. Culpa, facere accusantium! <br/> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere sed mollitia quam magnam aspernatur dolore fugit rem quae, pariatur iure sapiente earum, eveniet nobis reprehenderit ratione repellendus. Culpa, facere accusantium!
 Lorem ipsum dolor sit amet consectetur, adipisicing elit.Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
           
          {/* <h2>Let's Go , <br></br> create and <br/> share ideas</h2>
@@ -57,7 +56,7 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit.Lorem ipsum dolor sit a
         { user == null || user?.username == null ? 
         <>
         <Link to='/login' className='btn btn-outline-light home-btns'>Login</Link>
-        <Link className='btn btn-outline-light home-btns'>Regiter</Link>
+        <Link to='/register' className='btn btn-outline-light home-btns'>Regiter</Link>
         </> : 
         <>
         <p className='username'>{user?.username}</p>
