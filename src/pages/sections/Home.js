@@ -3,6 +3,7 @@ import HomeLink from '../../components/HomeLink'
 import { Link } from 'react-router-dom'
 import { useUser } from '../../contexts/userContext'
 import axios from 'axios'
+import HomeCarousel from '../../components/HomeCarousel'
 
 const Home = (props) => {
 
@@ -70,7 +71,7 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit.Lorem ipsum dolor sit a
         <HomeLink refer="#" title="Home"/>
         </div>
         <div className='right-home'>
-
+          <HomeCarousel/>
         </div>
       </div>
     </div>
