@@ -28,7 +28,6 @@ const AboutUs = (props) => {
             <div className='col-lg-4 profile'>
               <FollowUs />
               <VisitOthers />
-                {/* <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos vitae, sed voluptatem quia veniam aspernatur distinctio omnis nam voluptas. Qui dolor est aliquid fugit assumenda! Et tenetur consequuntur quibusdam harum.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos vitae, sed voluptatem quia veniam aspernatur distinctio omnis nam voluptas. Qui dolor est aliquid fugit assumenda! Et tenetur consequuntur quibusdam harum.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos vitae, sed voluptatem quia veniam aspernatur distinctio omnis nam voluptas. Qui dolor est aliquid fugit assumenda! Et tenetur consequuntur quibusdam harum.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos vitae, sed voluptatem quia veniam aspernatur distinctio omnis nam voluptas. Qui dolor est aliquid fugit assumenda! Et tenetur consequuntur quibusdam harum.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos vitae, sed voluptatem quia veniam aspernatur distinctio omnis nam voluptas. Qui dolor est aliquid fugit assumenda! Et tenetur consequuntur quibusdam harum.</p> */}
             </div>
           </div>
         </div>

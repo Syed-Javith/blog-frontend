@@ -58,6 +58,10 @@ const Post = (props) => {
         });
     }
 
+    // function edit(e){
+
+    // }
+
   return (
     <section  id={props.id}> 
         <h1 className='center'>Posts</h1>
@@ -83,9 +87,9 @@ const Post = (props) => {
 
         <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit Changes Here</Modal.Title>
+          <Modal.Title>Add New Post</Modal.Title>
         </Modal.Header>
-        <Modal.Body className='edit-form-modal'>
+        <Modal.Body className='add-form-modal'>
           You can make new contents here!
           <form onSubmit={(e) => edit(e)} method='post'>
           <div className="form-group">

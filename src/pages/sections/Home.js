@@ -4,14 +4,12 @@ import { Link } from 'react-router-dom'
 import { useUser } from '../../contexts/userContext'
 import axios from 'axios'
 import HomeCarousel from '../../components/HomeCarousel'
+import HomeContent from '../../components/Home/HomeContent'
 
 const Home = (props) => {
 
   const { user  , setUser } = useUser();
 
-  // useEffect(()=>{
-  //   user = useUser();
-  // },[user]);
 
   const logout = ()=>{
     const url = "http://localhost:5000/auth/logout/"
@@ -29,27 +27,16 @@ const Home = (props) => {
 
   return (
     <section id={props.id}>
-      {/* <h1>{ user && user.username }</h1> */}
         <div className='home'>
-      <div className='container-fluid'>
-      <div className='row d-flex flex-row'>
-      <div className='col-lg-6 mr-auto'>
-      
-        <div className='container head-container'>
-        <h1>RSJ Blogss</h1>
-        <hr className='hr'/>
-         <div >
-         <h2>Let's Go , <br></br> create and <br/> share ideas</h2>
-          <p>innovate with us</p>
-
-        <p>
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere sed mollitia quam magnam aspernatur <br/> dolore fugit rem quae, pariatur iure sapiente earum, eveniet nobis reprehenderit ratione repellendus. Culpa, facere accusantium! <br/> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere sed mollitia quam magnam aspernatur dolore fugit rem quae, pariatur iure sapiente earum, eveniet nobis reprehenderit ratione repellendus. Culpa, facere accusantium!
-Lorem ipsum dolor sit amet consectetur, adipisicing elit.Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+            <div className='container-fluid'>
+            <div className='row d-flex flex-row'>
+            <div className='col-lg-6 mr-auto'>
           
-         {/* <h2>Let's Go , <br></br> create and <br/> share ideas</h2>
-          <p>innovate with us</p> */}
-         </div>
-        </div>
+            <div className='container head-container'>
+            <h1>RSJ Blogss</h1>
+            <hr className='hr'/>
+            <HomeContent/>
+            </div>
       </div>
 
       <div className='col-lg-6' >
@@ -66,9 +53,9 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit.Lorem ipsum dolor sit a
         }
         </div>
         <div className='d-flex flex-row-reverse'>
-        <HomeLink refer="#about-us" title="About Us"/>
-        <HomeLink refer="#posts" title="Posts"/>
-        <HomeLink refer="#" title="Home"/>
+          <HomeLink refer="#about-us" title="About Us"/>
+          <HomeLink refer="#posts" title="Posts"/>
+          <HomeLink refer="#" title="Home"/>
         </div>
         <div className='right-home'>
           <HomeCarousel/>
