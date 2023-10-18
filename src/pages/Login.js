@@ -1,12 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { useUser } from '../contexts/userContext';
 import { useNavigate } from 'react-router-dom';
-
+import Cookies from 'universal-cookie';
 const Login = () => {
 
-    const {setUser } = useUser();
 
+    const cookies = new Cookies();
     const [user , setUserName] = useState("");
     const [password , setPassword] = useState("");
     const navigate = useNavigate();
@@ -23,8 +22,13 @@ const Login = () => {
         axios.post(url,data)
         .then((result) => {
             console.log(result.data);
-            if(result.data?.username){
-              setUser(result.data)
+            if(result.data?.user?.username){
+              cookies.set("token",result.data?.token,{
+                path : '/'
+              });
+              cookies.set("user",result.data?.user,{
+                path : '/'
+              });
               navigate('/');
             }
         }).catch((err) => {

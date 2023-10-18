@@ -6,11 +6,15 @@ import NoPost from './NoPost';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 const Post = (props) => {
 
+  const cookies = new Cookies();
     
   const [newBlogTitle , setNewBlogTitle] = useState("");
   const [newBlogDescription , setNewBlogDescription] = useState("");
+
+  const [user , setUser] = useState(cookies.get('user'));
 
 
     
@@ -20,7 +24,7 @@ const Post = (props) => {
     const handleShow = () => setShow(true);
     const navigate = useNavigate();
 
-    const {user , blogs , setBlogs} = useUser();
+    const {blogs , setBlogs} = useUser();
 
     useEffect(()=>{
 
@@ -28,7 +32,6 @@ const Post = (props) => {
 
         axios.get(url)
         .then((result) => {
-            // console.log(result);
             setBlogs(result.data);
         }).catch((err) => {
             console.log(err);
@@ -37,12 +40,12 @@ const Post = (props) => {
 
 
     const add = (e)=>{
-        const url = `http://localhost:5000/blog/${user.username}/${newBlogTitle}`;
+        const url = `http://localhost:5000/blog/${user?.username}/${newBlogTitle}`;
 
         const data = {
             blogBody : newBlogDescription ,
             blogTitle : newBlogTitle ,
-            userid : user.username
+            userid : user?.username
         }
         axios.post(url,data)
         .then((result) => {

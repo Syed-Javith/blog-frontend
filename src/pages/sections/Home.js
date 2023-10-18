@@ -1,15 +1,19 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import HomeLink from '../../components/HomeLink'
 import { Link } from 'react-router-dom'
-import { useUser } from '../../contexts/userContext'
 import axios from 'axios'
 import HomeCarousel from '../../components/HomeCarousel'
 import HomeContent from '../../components/Home/HomeContent'
+import Cookies from 'universal-cookie'
+
 
 const Home = (props) => {
 
-  const { user  , setUser } = useUser();
+  const cookies = new Cookies();
 
+  const [ user , setUser ] = useState(cookies.get('user'))
+
+  console.log(user?.username);
 
   const logout = ()=>{
     const url = "http://localhost:5000/auth/logout/"
@@ -17,7 +21,9 @@ const Home = (props) => {
     axios.post(url)
     .then((result) => {
       alert("logged out successfully");
-      setUser(null);
+      cookies.remove('user');
+      cookies.remove('token');
+      setUser(null)
     }).catch((err) => {
       console.log(err);
     });

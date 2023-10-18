@@ -3,11 +3,16 @@ import { useUser } from '../contexts/userContext'
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Cookies from 'universal-cookie';
 
 
 const BlogCard = (props) => {
 
-  const { user , blogs , setBlogs } = useUser();
+  const cookies = new Cookies();
+
+  const { blogs , setBlogs } = useUser();
+
+  const [user , setUser] = useState(cookies.get('user'));
 
   const [newBlogTitle , setNewBlogTitle] = useState(props.blog.blogTitle);
   const [newBlogDescription , setNewBlogDescription] = useState("");
