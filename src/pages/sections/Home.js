@@ -16,7 +16,7 @@ const Home = (props) => {
   console.log(user?.username);
 
   const logout = ()=>{
-    const url = "http://localhost:5000/auth/logout/"
+    const url = "https://blog-068m.onrender.com/auth/logout/"
 
     axios.post(url)
     .then((result) => {

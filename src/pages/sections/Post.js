@@ -28,7 +28,7 @@ const Post = (props) => {
 
     useEffect(()=>{
 
-        const url = 'http://localhost:5000/blog'
+        const url = 'https://blog-068m.onrender.com/blog'
 
         axios.get(url)
         .then((result) => {

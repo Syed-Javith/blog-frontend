@@ -14,7 +14,7 @@ const Login = () => {
 
         e.preventDefault();
 
-        const url = 'http://localhost:5000/auth/login';
+        const url = 'https://blog-068m.onrender.com/auth/login';
         const data = {
             username : user ,
             password : password

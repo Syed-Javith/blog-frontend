@@ -15,7 +15,7 @@ const Register = () => {
       e.preventDefault();
       console.log(user + " "+password);
 
-      const url = 'http://localhost:5000/auth/register';
+      const url = 'https://blog-068m.onrender.com/auth/register';
       const data = {
           username : user ,
           password : password
