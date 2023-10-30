@@ -1,7 +1,7 @@
-import Carousel from 'react-bootstrap/Carousel';
-import spaceImage from '../images/innovation_ai';
-import image2 from '../images/innovate.blub.png'
-import image3 from '../images/innovation.desk.jpg'
+import Carousel from "react-bootstrap/Carousel";
+import spaceImage from "../images/innovation_ai";
+import image2 from "../images/innovate.blub.png";
+import image3 from "../images/innovation.desk.jpg";
 function HomeCarousel() {
   return (
     <Carousel>
