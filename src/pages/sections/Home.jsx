@@ -11,10 +11,10 @@ const Home = (props) => {
 
   const [user, setUser] = useState(cookies.get("user"));
 
-  console.log(user?.username);
+  console.log(user);
 
   const logout = () => {
-    const url = "https://blog-068m.onrender.com/auth/logout/";
+    const url = "http://localhost:5000/auth/logout";
 
     axios
       .post(url)

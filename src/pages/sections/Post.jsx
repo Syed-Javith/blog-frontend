@@ -24,7 +24,7 @@ const Post = (props) => {
   const { blogs, setBlogs } = useUser();
 
   useEffect(() => {
-    const url = "https://blog-068m.onrender.com/blog";
+    const url = "https://blog-068m.onrender.com/blog/";
 
     axios
       .get(url)
@@ -34,10 +34,10 @@ const Post = (props) => {
       .catch((err) => {
         console.log(err);
       });
-  }, [blogs]);
+  }, [blogs , user?.liked]);
 
   const add = (e) => {
-    const url = `http://localhost:5000/blog/${user?.username}/${newBlogTitle}`;
+    const url = `https://blog-068m.onrender.com/blog/${user?.username}/${newBlogTitle}`;
 
     const data = {
       blogBody: newBlogDescription,
@@ -59,9 +59,6 @@ const Post = (props) => {
       });
   };
 
-  // function edit(e){
-
-  // }
 
   return (
     <section id={props.id}>
@@ -71,7 +68,7 @@ const Post = (props) => {
         <NoPost />
       ) : (
         blogs.map((blog) => {
-          return <BlogCard key={blog._id} blog={blog} />;
+          return <BlogCard key={blog._id} liked={user?.liked} blog={blog} currentUser={user?.userid} />;
         })
       )}
 

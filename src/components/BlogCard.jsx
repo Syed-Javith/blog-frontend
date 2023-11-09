@@ -11,12 +11,17 @@ const BlogCard = (props) => {
   const { blogs, setBlogs } = useUser();
 
   const [user, setUser] = useState(cookies.get("user"));
+  const [liked , setLiked] = useState( props?.liked?.indexOf(props.blog._id) > -1 )
 
   const [newBlogTitle, setNewBlogTitle] = useState(props.blog.blogTitle);
   const [newBlogDescription, setNewBlogDescription] = useState("");
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const deleteBlog = () => {
-    const url = `http://localhost:5000/blog/${props.blog.userid}/${props.blog.blogTitle}/`;
+    const url = `https://blog-068m.onrender.com/blog/${props.blog.userid}/${props.blog.blogTitle}/`;
 
     axios
       .delete(url)
@@ -32,17 +37,9 @@ const BlogCard = (props) => {
       });
   };
 
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   const edit = (e) => {
     e.preventDefault();
-
     const url = `http://localhost:5000/blog/${props.blog.userid}/${props.blog.blogTitle}`;
-    // console.log(url);
-
     const data = {
       blogBody: newBlogDescription,
       blogTitle: newBlogTitle,
@@ -59,6 +56,45 @@ const BlogCard = (props) => {
         console.log(err);
       });
   };
+  // console.log(props.currentUser);
+
+  const unlikeBlog = async () => {
+    console.log("unlike");
+    const blogid = props.blog._id;
+    const userid = props.currentUser;
+   
+    const url = `http://localhost:5000/dislike/${userid}/${blogid}`;
+    // console.log(url);
+
+    await axios
+      .post(url)
+      .then((result) => {
+        console.log(result);
+        setLiked(false)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  const likeBlog = async () => {
+    console.log("pressed");
+    const blogid = props.blog._id;
+    const userid = props.currentUser;
+   
+    const url = `http://localhost:5000/like/${userid}/${blogid}`;
+    // console.log(url);
+
+    await axios
+      .post(url)
+      .then((result) => {
+        console.log(result);
+        setLiked(true)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="container-fluid blog-container" style={{ width: "70%" }}>
@@ -67,6 +103,17 @@ const BlogCard = (props) => {
         <p>{props.blog.blogBody}</p>
         <p>by {props.blog.userid}</p>
         <div className="d-flex flex-row-reverse edit-delete-btns">
+          <button
+            onClick={ liked ? unlikeBlog : likeBlog}
+            className="btn btn-outline rounded-circle"
+            style={{ border: "1px solid #d63384" }}
+            disabled={ props.currentUser != null || props.currentUser != undefined ? false : true}
+          >
+            <i
+              className={`fa-regular fa-heart ${liked && 'fa-solid'}`}
+              style={{ color: "#ff00ea" }}
+            ></i>
+          </button>
           <button
             onClick={handleShow}
             disabled={!(user?.username === props.blog.userid)}

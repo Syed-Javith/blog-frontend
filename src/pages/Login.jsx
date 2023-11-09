@@ -26,6 +26,7 @@ const Login = () => {
           setError(true);
           setIsLogging(false)
         }
+        console.log(result.data?.user);
         if (result.data?.user?.username) {
           cookies.set("token", result.data?.token, {
             path: "/",
